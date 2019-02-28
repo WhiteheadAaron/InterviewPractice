@@ -52,20 +52,40 @@ function isTriangle(a, b, c) {
 
 function likes(names) {
   if (names.length === 0) {
-      return 'no one likes this';
+    return "no one likes this";
   }
   if (names.length === 1) {
-      return `${names[0]} likes this`;
+    return `${names[0]} likes this`;
   }
   if (names.length === 2) {
-      return `${names[0]} and ${names[1]} like this`
+    return `${names[0]} and ${names[1]} like this`;
   }
   if (names.length === 3) {
-    return `${names[0]}, ${names[1]} and ${names[2]} like this`
-  }
-  else {
+    return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+  } else {
     return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
   }
-};
+}
 
-console.log(likes(["Alex", "Jacob", "Mark", "Max"]));
+// console.log(likes(["Alex", "Jacob", "Mark", "Max"]));
+
+// Write a function that takes in an integer, and returns all numbers that are divisible in that integer excluding the number itself and 1
+// divisors(12); should return [2,3,4,6]
+// divisors(25); should return [5]
+// divisors(13); should return "13 is prime"
+
+function divisors(integer) {
+    let half = integer / 2;
+    let solution = [];
+    for (let i = 2; i <= half; i ++) {
+        if (integer % i === 0) {
+            solution.push(i);
+        }
+    }
+    if (solution.length === 0){
+        return `${integer} is prime`;
+    }
+    return solution;
+}
+
+console.log(divisors(12));
