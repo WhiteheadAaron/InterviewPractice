@@ -148,13 +148,31 @@ function XO(str) {
 function friend(friends) {
   let solution = [];
   for (let i = 0; i < friends.length; i++) {
-      if (friends[i].length === 4) {
-          solution.push(friends[i]);
-      }
+    if (friends[i].length === 4) {
+      solution.push(friends[i]);
+    }
   }
   return solution;
 }
 
 // console.log(friend(["Ryan", "Kieran", "Jason", "Yous"]));
+
+// Write a function that takes in a consecutive string of letters, with one missing from chronological order. Return the letter that is missing
+// ['a','b','c','d','f'] -> 'e'
+
+function findMissingLetter(array) {
+  let prev = array[0].charCodeAt(0) - 1;
+  let solution;
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].charCodeAt(0) - prev !== 1) {
+      solution = String.fromCharCode(array[i].charCodeAt(0) - 1);
+    }
+    prev = array[i].charCodeAt(0);
+  }
+  return solution;
+}
+
+// console.log(findMissingLetter(["O", "Q", "R", "S"]));
 
 
