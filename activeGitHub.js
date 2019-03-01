@@ -120,3 +120,27 @@ function sumTwoSmallestNumbers(numbers) {
 }
 
 // console.log(sumTwoSmallestNumbers([10, 343445353, 3453445, 3453545353453]));
+
+
+// Write a function that checks to see if there are the same number of x's and o'x in a string. Any character can exist in the string
+
+function XO(str) {
+    let x = 0;
+    let o = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === 'X' || str[i] === 'x') {
+            x = x + 1;
+        }
+        if (str[i] === 'O' || str[i] === 'o') {
+            o = o + 1;
+        }
+    }
+    if (x === o) {
+        return true;
+    }
+
+    return false;
+}
+
+// console.log(XO("ooxXm"));
+
