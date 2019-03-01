@@ -88,4 +88,26 @@ function divisors(integer) {
     return solution;
 }
 
-console.log(divisors(12));
+// console.log(divisors(12));
+
+
+// Write a function that when given an array of integers, find the only integer that appears an odd number of times. There will always only be one that does
+
+function findOdd(input) {
+    let prev = 'hello';
+    input = input.sort();
+
+    for (let i = 0; i < input.length; i++) {
+        if (prev === input[i]) {
+            prev = 'hello';
+        }
+        else if (prev === 'hello') {
+            prev = input[i];
+        }
+        else {
+            return prev;
+        }
+    }
+}
+
+console.log(findOdd([10, 5, 5, 6, 6, 8, 9, 9, 10]));
