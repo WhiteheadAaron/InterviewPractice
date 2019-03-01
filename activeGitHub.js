@@ -112,35 +112,49 @@ function findOdd(input) {
 // Write a function that takes in an array of numbers, and returns the sum of the two smallest numbers in the array
 
 function sumTwoSmallestNumbers(numbers) {
-    function sortNumber(a, b) {
-        return a - b;
-    }
+  function sortNumber(a, b) {
+    return a - b;
+  }
 
-    return numbers.sort(sortNumber)[0] + numbers.sort(sortNumber)[1];
+  return numbers.sort(sortNumber)[0] + numbers.sort(sortNumber)[1];
 }
 
 // console.log(sumTwoSmallestNumbers([10, 343445353, 3453445, 3453545353453]));
 
-
 // Write a function that checks to see if there are the same number of x's and o'x in a string. Any character can exist in the string
 
 function XO(str) {
-    let x = 0;
-    let o = 0;
-    for (let i = 0; i < str.length; i++) {
-        if (str[i] === 'X' || str[i] === 'x') {
-            x = x + 1;
-        }
-        if (str[i] === 'O' || str[i] === 'o') {
-            o = o + 1;
-        }
+  let x = 0;
+  let o = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === "X" || str[i] === "x") {
+      x = x + 1;
     }
-    if (x === o) {
-        return true;
+    if (str[i] === "O" || str[i] === "o") {
+      o = o + 1;
     }
+  }
+  if (x === o) {
+    return true;
+  }
 
-    return false;
+  return false;
 }
 
 // console.log(XO("ooxXm"));
+
+// Write a function that takes an array of strings, return a new array that include only the strings that have 4 characters
+
+function friend(friends) {
+  let solution = [];
+  for (let i = 0; i < friends.length; i++) {
+      if (friends[i].length === 4) {
+          solution.push(friends[i]);
+      }
+  }
+  return solution;
+}
+
+// console.log(friend(["Ryan", "Kieran", "Jason", "Yous"]));
+
 
