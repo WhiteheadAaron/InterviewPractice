@@ -178,14 +178,54 @@ function findMissingLetter(array) {
 // Write a function that finds all numbers below input n that are either multiples of 3 OR 5. If it's a multiple of both do not count it twice. The function then returns the sum of all of these numbers
 
 function solution(number) {
-    let solution = 0;
-    for (let i = number - 1; i > 2; i--) {
-        if (i % 3 === 0 || i % 5 === 0) {
-            solution = solution + i;
-        }
+  let solution = 0;
+  for (let i = number - 1; i > 2; i--) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      solution = solution + i;
     }
-
-    return solution;
+  }
+  return solution;
 }
 
-console.log(solution(10));
+// console.log(solution(10));
+
+// Write a function that returns a list of names as follows:
+// list([ {name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'} ])
+// returns 'Bart, Lisa & Maggie'
+
+// list([ {name: 'Bart'}, {name: 'Lisa'} ])
+// returns 'Bart & Lisa'
+
+// list([ {name: 'Bart'} ])
+// returns 'Bart'
+
+// list([])
+// returns ''
+
+function list(names) {
+  let first = '';
+  let second;
+  let last;
+  if (names.length === 0) {
+    return "";
+  }
+  if (names.length === 1) {
+    return names[0].name;
+  } else {
+    for (let i = 0; i < names.length; i++) {
+      if (i === names.length - 2) {
+        second = names[names.length - 2].name;
+      }
+      if (i === names.length - 1) {
+        last = names[names.length - 1].name;
+      }
+      if (i < names.length - 2) {
+          first = first + `${names[i].name}, `;
+      }
+    }
+  }
+
+  return first + second + ' & ' + last;
+}
+
+// console.log(list([{ name: "Bart" }, { name: "Lisa" }, { name: "Maggie" }]));
