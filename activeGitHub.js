@@ -175,4 +175,17 @@ function findMissingLetter(array) {
 
 // console.log(findMissingLetter(["O", "Q", "R", "S"]));
 
+// Write a function that finds all numbers below input n that are either multiples of 3 OR 5. If it's a multiple of both do not count it twice. The function then returns the sum of all of these numbers
 
+function solution(number) {
+    let solution = 0;
+    for (let i = number - 1; i > 2; i--) {
+        if (i % 3 === 0 || i % 5 === 0) {
+            solution = solution + i;
+        }
+    }
+
+    return solution;
+}
+
+console.log(solution(10));
