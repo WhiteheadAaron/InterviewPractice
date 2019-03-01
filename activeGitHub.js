@@ -242,42 +242,69 @@ function tickets(peopleInLine) {
   let hundred = 0;
 
   for (let i = 0; i < peopleInLine.length; i++) {
-      let bill = peopleInLine[i];
-      let change = bill - 25;
-      if (change > cash) {
-          return "NO";
+    let bill = peopleInLine[i];
+    let change = bill - 25;
+    if (change > cash) {
+      return "NO";
+    }
+    if (bill === 25) {
+      twenty += 1;
+    }
+    if (bill === 50) {
+      if (twenty === 0) {
+        return "NO";
+      } else {
+        twenty -= 1;
+        fifty = +1;
       }
-      if (bill === 25) {
-          twenty += 1;
+    }
+    if (bill === 100) {
+      if (twenty === 0 || (fifty === 0 && twenty < 3)) {
+        return "NO";
       }
-      if (bill === 50) {
-          if (twenty === 0) {
-            return "NO";
-          }
-          else {
-            twenty -= 1;
-            fifty =+ 1;
-          }
+      if (fifty > 0) {
+        fifty -= 1;
+        twenty -= 1;
+        hundred += 1;
       }
-      if (bill === 100) {
-          if (twenty === 0 || (fifty === 0 && twenty < 3)) {
-              return "NO";
-          }
-          if (fifty > 0) {
-              fifty -= 1;
-              twenty -= 1;
-              hundred += 1;
-          }
-          if (fifty === 0 && twenty >= 3) {
-              twenty -= 3;
-              hundred += 1;
-          }
+      if (fifty === 0 && twenty >= 3) {
+        twenty -= 3;
+        hundred += 1;
       }
-      cash += bill;
+    }
+    cash += bill;
   }
   return "YES";
 }
 
 // console.log(tickets([25, 25, 50, 50, 100]));
 
+// Write a function to calculate qeue times based on two inputs, an array of customers with n values for time, and the number of registers available
 
+function queueTime(customers, n) {
+  let solution = 0;
+  if (n === 1) {
+    customers.forEach(item => (solution += item));
+    return solution;
+  }
+  let lines = [];
+  function createLines() {
+    for (let i = 0; i < n; i++) {
+      lines[i] = 0;
+    }
+    return lines;
+  }
+  createLines();
+
+  function sortNumber(a, b) {
+    return a - b;
+  }
+  for (let i = 0; i < customers.length; i++) {
+    lines = lines.sort(sortNumber);
+    lines[0] = lines[0] + customers[i];
+  }
+  lines = lines.sort(sortNumber);
+  return lines[lines.length - 1];
+}
+
+console.log(queueTime([10,2,3,3], 2));
