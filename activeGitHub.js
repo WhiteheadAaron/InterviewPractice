@@ -203,7 +203,7 @@ function solution(number) {
 // returns ''
 
 function list(names) {
-  let first = '';
+  let first = "";
   let second;
   let last;
   if (names.length === 0) {
@@ -220,12 +220,64 @@ function list(names) {
         last = names[names.length - 1].name;
       }
       if (i < names.length - 2) {
-          first = first + `${names[i].name}, `;
+        first = first + `${names[i].name}, `;
       }
     }
   }
 
-  return first + second + ' & ' + last;
+  return first + second + " & " + last;
 }
 
 // console.log(list([{ name: "Bart" }, { name: "Lisa" }, { name: "Maggie" }]));
+
+// Write a function to see if a cashier will have the right amount of change based on what order people enter a line
+// tickets([25, 25, 50]) => YES
+// tickets([25, 100]) => NO. Vasya will not have enough money to give change to 100 dollars
+// tickets([25, 25, 50, 50, 100]) => NO. Vasya will not have the right bills to give 75 dollars of change (you can't make two bills of 25 from one of 50)
+
+function tickets(peopleInLine) {
+  let cash = 0;
+  let twenty = 0;
+  let fifty = 0;
+  let hundred = 0;
+
+  for (let i = 0; i < peopleInLine.length; i++) {
+      let bill = peopleInLine[i];
+      let change = bill - 25;
+      if (change > cash) {
+          return "NO";
+      }
+      if (bill === 25) {
+          twenty += 1;
+      }
+      if (bill === 50) {
+          if (twenty === 0) {
+            return "NO";
+          }
+          else {
+            twenty -= 1;
+            fifty =+ 1;
+          }
+      }
+      if (bill === 100) {
+          if (twenty === 0 || (fifty === 0 && twenty < 3)) {
+              return "NO";
+          }
+          if (fifty > 0) {
+              fifty -= 1;
+              twenty -= 1;
+              hundred += 1;
+          }
+          if (fifty === 0 && twenty >= 3) {
+              twenty -= 3;
+              hundred += 1;
+          }
+      }
+      cash += bill;
+  }
+  return "YES";
+}
+
+// console.log(tickets([25, 25, 50, 50, 100]));
+
+
