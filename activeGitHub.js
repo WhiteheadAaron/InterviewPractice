@@ -75,39 +75,48 @@ function likes(names) {
 // divisors(13); should return "13 is prime"
 
 function divisors(integer) {
-    let half = integer / 2;
-    let solution = [];
-    for (let i = 2; i <= half; i ++) {
-        if (integer % i === 0) {
-            solution.push(i);
-        }
+  let half = integer / 2;
+  let solution = [];
+  for (let i = 2; i <= half; i++) {
+    if (integer % i === 0) {
+      solution.push(i);
     }
-    if (solution.length === 0){
-        return `${integer} is prime`;
-    }
-    return solution;
+  }
+  if (solution.length === 0) {
+    return `${integer} is prime`;
+  }
+  return solution;
 }
 
 // console.log(divisors(12));
 
-
 // Write a function that when given an array of integers, find the only integer that appears an odd number of times. There will always only be one that does
 
 function findOdd(input) {
-    let prev = 'hello';
-    input = input.sort();
+  let prev = "hello";
+  input = input.sort();
 
-    for (let i = 0; i < input.length; i++) {
-        if (prev === input[i]) {
-            prev = 'hello';
-        }
-        else if (prev === 'hello') {
-            prev = input[i];
-        }
-        else {
-            return prev;
-        }
+  for (let i = 0; i < input.length; i++) {
+    if (prev === input[i]) {
+      prev = "hello";
+    } else if (prev === "hello") {
+      prev = input[i];
+    } else {
+      return prev;
     }
+  }
 }
 
-console.log(findOdd([10, 5, 5, 6, 6, 8, 9, 9, 10]));
+// console.log(findOdd([10, 5, 5, 6, 6, 8, 9, 9, 10]));
+
+// Write a function that takes in an array of numbers, and returns the sum of the two smallest numbers in the array
+
+function sumTwoSmallestNumbers(numbers) {
+    function sortNumber(a, b) {
+        return a - b;
+    }
+
+    return numbers.sort(sortNumber)[0] + numbers.sort(sortNumber)[1];
+}
+
+// console.log(sumTwoSmallestNumbers([10, 343445353, 3453445, 3453545353453]));
