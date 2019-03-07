@@ -381,3 +381,44 @@ function bouncingBall(h,  bounce,  window) {
 }
 
 // console.log(bouncingBall(3, .66, 1.5));
+
+
+// Write a function that takes in seconds as the argument, and returns a string in easy to read form for humans with how many years, days, hours, minutes and seconds the total amounts to
+
+
+function formatDuration (seconds) {
+
+  if (seconds === 0) {
+    return 'now';
+  }
+
+  let years = 0;
+  let days = 0;
+  let hours = 0;
+  let minutes = 0;
+
+  
+  while (seconds >= 31536000) {
+    years++;
+    seconds -= 31536000;
+  }
+
+  while (seconds >= 60*60*24) {
+    days++;
+    seconds -= 60*60*24;
+  }
+
+  while (seconds >= 60*60) {
+    hours++;
+    seconds -= 60*60;
+  }
+
+  while (seconds >= 60) {
+    minutes++;
+    seconds -= 60;
+  }
+
+  return `${years} years, ${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`;
+}
+
+console.log(formatDuration(31536999));
