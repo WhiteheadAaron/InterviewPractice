@@ -362,3 +362,22 @@ function findOutlier(integers){
 }
 
 // console.log(findOutlier([2, 4, 0, 100, 4, 11, 2602, 36]));
+
+
+// Write a function that determines how many times a ball will bounce above a window given the initial height, the bounce factor, and the height of the window. Count both the bouncing above the window, and falling back down below it.
+
+function bouncingBall(h,  bounce,  window) {
+  if (h <= 0 || bounce <= 0 || bounce >= 1 || window >= h) {
+    return -1;
+  }
+
+  let count = -1;
+
+  for (let i = h; i > window; i = i * bounce) {
+    count+=2;
+  }
+
+  return count;
+}
+
+// console.log(bouncingBall(3, .66, 1.5));
