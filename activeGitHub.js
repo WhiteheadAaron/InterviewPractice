@@ -316,6 +316,49 @@ function createPhoneNumber(numbers){
   return `(${numbers[0]}${numbers[1]}${numbers[2]}) ${numbers[3]}${numbers[4]}${numbers[5]}-${numbers[6]}${numbers[7]}${numbers[8]}${numbers[9]}`;
 }
 
-console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+// console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
 
 
+// Write a function that returns the only odd or only even number from an array of numbers (There will be all odd and one even or vice versa no matter what)
+
+function findOutlier(integers){
+  let odd = {
+    word: null,
+    count: 0
+  };
+
+  let even = {
+    word: null,
+    count: 0
+  };
+
+  for (let i = 0; i < integers.length; i++) {
+    if (integers[i] % 2 === 0) {
+      if (even.count !== 0 && odd.word !== null) {
+        return odd.word;
+      }
+      else if (odd.count > 1 && even.count === 0) {
+        return integers[i];
+      }
+      else {
+        even.count = even.count + 1;
+        even.word = integers[i];
+      }
+    }
+
+    if (integers[i] % 2 !== 0) {
+      if (odd.count !== 0 && even.word !== null) {
+        return even.word;
+      }
+      else if (even.count > 1 && odd.count === 0) {
+        return integers[i];
+      }
+      else {
+        odd.count = odd.count + 1;
+        odd.word = integers[i];
+      }
+    }
+  }
+}
+
+// console.log(findOutlier([2, 4, 0, 100, 4, 11, 2602, 36]));
