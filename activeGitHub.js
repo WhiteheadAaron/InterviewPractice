@@ -471,11 +471,31 @@ function lastDigit(a, b) {
   a = Number(a);
   b = Number(b);
 
-  console.log(a, b);
-
   let result = Math.pow(a, b).toString();
   console.log(result);
   return Number(result[result.length - 1]);
 }
 
-console.log(lastDigit("3715290469715693021198967285016729344580685479654510946723", "68819615221552997273737174557165657483427362207517952651"));
+// console.log(lastDigit("3715290469715693021198967285016729344580685479654510946723", "68819615221552997273737174557165657483427362207517952651"));
+
+
+// Write a function that takes arguments for both original array length, as well as an iterator value. If the length is set to be 4, the original array will be [1, 2, 3, 4]. If the second argument is 3, it will remove an item every 3 times until they're all gone. The final result would look like this: [3, 2, 4, 1]
+
+
+function josephus(items, k) {
+  let location = 0;
+  let result = [];
+
+  while (items.length !== 0) {
+    location += k - 1;
+    while (location > items.length - 1) {
+      location = location - items.length;
+    }
+    result.push(items[location]);
+    items.splice(location, 1);
+  }
+
+  return result;
+}
+
+// console.log(josephus([1, 2, 3, 4, 5, 6, 7], 3));
