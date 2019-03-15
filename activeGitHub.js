@@ -463,4 +463,19 @@ function returnAllPrime(n) {
 }
 
 // console.log(returnAllPrime(59));
-console.log(0^0);
+
+
+// Write a function that returns the last digit of the number that results from given a to the power of given b
+
+function lastDigit(a, b) {
+  a = Number(a);
+  b = Number(b);
+
+  console.log(a, b);
+
+  let result = Math.pow(a, b).toString();
+  console.log(result);
+  return Number(result[result.length - 1]);
+}
+
+console.log(lastDigit("3715290469715693021198967285016729344580685479654510946723", "68819615221552997273737174557165657483427362207517952651"));
