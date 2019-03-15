@@ -422,3 +422,45 @@ function formatDuration (seconds) {
 }
 
 // console.log(formatDuration(31536999));
+
+
+// Write a function that tests if a number is prime or not
+
+function isItPrime(n) {
+  for (let i = Math.floor(n / 2); i > 1; i--) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// console.log(isItPrime(13));
+
+
+
+// Write a function that returns an array of all numbers that are prime below and including a given integer
+
+
+function returnAllPrime(n) {
+  let solution = [1, 2];
+
+  for (let i = n; i > 2; i--) {
+    let count = 0;
+    for (let j = Math.floor(i / 2); j > 1; j--) {
+      if (i % j === 0) {
+        count++;
+      }
+    }
+    if (count === 0) {
+      solution.push(i);
+    }
+  }
+  function sortNumber(a, b) {
+    return a - b;
+  }
+  return solution.sort(sortNumber);
+}
+
+// console.log(returnAllPrime(59));
+console.log(0^0);
