@@ -421,4 +421,4 @@ function formatDuration (seconds) {
   return `${years} years, ${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`;
 }
 
-console.log(formatDuration(31536999));
+// console.log(formatDuration(31536999));
