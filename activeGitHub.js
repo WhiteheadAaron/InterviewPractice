@@ -499,3 +499,19 @@ function josephus(items, k) {
 }
 
 // console.log(josephus([1, 2, 3, 4, 5, 6, 7], 3));
+
+
+
+// Write a function that returns the total value of a given integers factorial
+
+
+function factorial(n) {
+  let solution = 1;
+  while(n > 1) {
+    solution = solution * n;
+    n--;
+  }
+  return solution.toString();
+}
+
+console.log(factorial(5));
