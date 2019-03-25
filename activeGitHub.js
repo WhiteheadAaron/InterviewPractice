@@ -511,7 +511,73 @@ function factorial(n) {
     solution = solution * n;
     n--;
   }
-  return solution.toString();
+  return solution;
 }
 
-console.log(factorial(5));
+// console.log(factorial(5));
+
+
+
+function crackingTheCode(input) {
+  input = input.split(" ");
+
+  let answer = '';
+
+  for (let i = 0; i < input.length; i++) {
+    if (input[i][0] === 'a') {
+      answer = `${answer}${input[i][1]}`;
+    }
+    if (input[i][0] === 'b') {
+      answer = `${answer}${input[i][2]}`;
+    }
+    if (input[i][0] === 'c') {
+      answer = `${answer}${input[i][3]}`;
+    }
+    if (input[i][0] === 'd') {
+      answer = `${answer}${input[i][4]}`;
+    }
+    else {
+      answer = answer + ' ';
+    }
+  }
+  return answer;
+}
+
+// console.log(crackingTheCode('craft block argon meter bells brown croon droop'));
+
+
+
+function daysInMonth(str, leap) {
+
+  let answer = "";
+
+  switch(str) {
+    case "January":
+    case "March":
+    case "May":
+    case "July":
+    case "August":
+    case "October":
+    case "December":
+      answer = `${str} has 31 days`;
+      break;
+    case "February":
+      answer = `${str} has ${leap ? '29' : '28'} days`;
+      break;
+    default:
+      answer = `${str} has 30 days"`;
+      break;
+  }
+
+  return answer;
+}
+
+// console.log(daysInMonth('February', true));
+
+
+
+function rockPaperScissors(input, compNumb = Math.floor(Math.random() * 3) + 1) {
+  return input === "Rock" ? compNumb === 1 ? 'It is a tie' : compNumb === 2 ? 'You lose' : 'You Win' : input === "Paper" ? compNumb === 1 ? 'You Win' : compNumb === 2 ? 'It is a tie' : 'You lose' : compNumb === 1 ? 'You lose' : compNumb === 2 ? 'You win' : 'It is a tie';
+}
+
+// console.log(rockPaperScissors('Rock'));
