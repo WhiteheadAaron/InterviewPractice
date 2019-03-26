@@ -643,3 +643,21 @@ function hazardWarningCreator(typeOfWarning) {
 // const rocksWarning = hazardWarningCreator('Rocks on the Road');
 // rocksWarning('Main St and Pacific Ave');
 // rocksWarning('Centinela Ave and Olympic Blvd');
+
+
+function forEachFilterMap(arr) {
+  // this uses filter and removes arrays that have a negative number
+  let filteredArray = arr.filter(item => item[0] >= 0 && item[1] >= 0);
+
+  // this uses map and counts the total of both numbers added up (absolute values)
+  let mapArray = arr.map(item => Math.abs(item[0]) + Math.abs(item[1]));
+
+  // this uses forEach
+  let forEachArray = arr.forEach(item => {
+    console.log(Math.abs(item[0]) + Math.abs(item[1]));
+  })
+
+  return forEachArray;
+}
+
+console.log(forEachFilterMap([[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]]));
