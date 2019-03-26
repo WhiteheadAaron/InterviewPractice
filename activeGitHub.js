@@ -660,4 +660,17 @@ function forEachFilterMap(arr) {
   return forEachArray;
 }
 
-console.log(forEachFilterMap([[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]]));
+// console.log(forEachFilterMap([[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]]));
+
+
+
+function reduceArray(str) {
+  str = str.split(" ");
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    str[i].length === 3 ? result = result + ' ' : result = result + str[i][str[i].length - 1].toUpperCase();
+  }
+  return result;
+}
+
+console.log(reduceArray('noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest'));
