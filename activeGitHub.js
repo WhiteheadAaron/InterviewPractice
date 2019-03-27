@@ -309,19 +309,19 @@ function queueTime(customers, n) {
 
 // console.log(queueTime([10,2,3,3], 2));
 
-
 // Write a function that takes an array of 10 integers and returns them in phone number form (123) 456-7890
 
-function createPhoneNumber(numbers){
-  return `(${numbers[0]}${numbers[1]}${numbers[2]}) ${numbers[3]}${numbers[4]}${numbers[5]}-${numbers[6]}${numbers[7]}${numbers[8]}${numbers[9]}`;
+function createPhoneNumber(numbers) {
+  return `(${numbers[0]}${numbers[1]}${numbers[2]}) ${numbers[3]}${numbers[4]}${
+    numbers[5]
+  }-${numbers[6]}${numbers[7]}${numbers[8]}${numbers[9]}`;
 }
 
 // console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
 
-
 // Write a function that returns the only odd or only even number from an array of numbers (There will be all odd and one even or vice versa no matter what)
 
-function findOutlier(integers){
+function findOutlier(integers) {
   let odd = {
     word: null,
     count: 0
@@ -336,11 +336,9 @@ function findOutlier(integers){
     if (integers[i] % 2 === 0) {
       if (even.count !== 0 && odd.word !== null) {
         return odd.word;
-      }
-      else if (odd.count > 1 && even.count === 0) {
+      } else if (odd.count > 1 && even.count === 0) {
         return integers[i];
-      }
-      else {
+      } else {
         even.count = even.count + 1;
         even.word = integers[i];
       }
@@ -349,11 +347,9 @@ function findOutlier(integers){
     if (integers[i] % 2 !== 0) {
       if (odd.count !== 0 && even.word !== null) {
         return even.word;
-      }
-      else if (even.count > 1 && odd.count === 0) {
+      } else if (even.count > 1 && odd.count === 0) {
         return integers[i];
-      }
-      else {
+      } else {
         odd.count = odd.count + 1;
         odd.word = integers[i];
       }
@@ -363,10 +359,9 @@ function findOutlier(integers){
 
 // console.log(findOutlier([2, 4, 0, 100, 4, 11, 2602, 36]));
 
-
 // Write a function that determines how many times a ball will bounce above a window given the initial height, the bounce factor, and the height of the window. Count both the bouncing above the window, and falling back down below it.
 
-function bouncingBall(h,  bounce,  window) {
+function bouncingBall(h, bounce, window) {
   if (h <= 0 || bounce <= 0 || bounce >= 1 || window >= h) {
     return -1;
   }
@@ -374,7 +369,7 @@ function bouncingBall(h,  bounce,  window) {
   let count = -1;
 
   for (let i = h; i > window; i = i * bounce) {
-    count+=2;
+    count += 2;
   }
 
   return count;
@@ -382,14 +377,11 @@ function bouncingBall(h,  bounce,  window) {
 
 // console.log(bouncingBall(3, .66, 1.5));
 
-
 // Write a function that takes in seconds as the argument, and returns a string in easy to read form for humans with how many years, days, hours, minutes and seconds the total amounts to
 
-
-function formatDuration (seconds) {
-
+function formatDuration(seconds) {
   if (seconds === 0) {
-    return 'now';
+    return "now";
   }
 
   let years = 0;
@@ -397,20 +389,19 @@ function formatDuration (seconds) {
   let hours = 0;
   let minutes = 0;
 
-  
   while (seconds >= 31536000) {
     years++;
     seconds -= 31536000;
   }
 
-  while (seconds >= 60*60*24) {
+  while (seconds >= 60 * 60 * 24) {
     days++;
-    seconds -= 60*60*24;
+    seconds -= 60 * 60 * 24;
   }
 
-  while (seconds >= 60*60) {
+  while (seconds >= 60 * 60) {
     hours++;
-    seconds -= 60*60;
+    seconds -= 60 * 60;
   }
 
   while (seconds >= 60) {
@@ -422,7 +413,6 @@ function formatDuration (seconds) {
 }
 
 // console.log(formatDuration(31536999));
-
 
 // Write a function that tests if a number is prime or not
 
@@ -437,10 +427,7 @@ function isItPrime(n) {
 
 // console.log(isItPrime(13));
 
-
-
 // Write a function that returns an array of all numbers that are prime below and including a given integer
-
 
 function returnAllPrime(n) {
   let solution = [1, 2];
@@ -464,7 +451,6 @@ function returnAllPrime(n) {
 
 // console.log(returnAllPrime(59));
 
-
 // Write a function that returns the last digit of the number that results from given a to the power of given b
 
 function lastDigit(a, b) {
@@ -478,9 +464,7 @@ function lastDigit(a, b) {
 
 // console.log(lastDigit("3715290469715693021198967285016729344580685479654510946723", "68819615221552997273737174557165657483427362207517952651"));
 
-
 // Write a function that takes arguments for both original array length, as well as an iterator value. If the length is set to be 4, the original array will be [1, 2, 3, 4]. If the second argument is 3, it will remove an item every 3 times until they're all gone. The final result would look like this: [3, 2, 4, 1]
-
 
 function josephus(items, k) {
   let location = 0;
@@ -500,14 +484,11 @@ function josephus(items, k) {
 
 // console.log(josephus([1, 2, 3, 4, 5, 6, 7], 3));
 
-
-
 // Write a function that returns the total value of a given integers factorial
-
 
 function factorial(n) {
   let solution = 1;
-  while(n > 1) {
+  while (n > 1) {
     solution = solution * n;
     n--;
   }
@@ -516,28 +497,25 @@ function factorial(n) {
 
 // console.log(factorial(5));
 
-
-
 function crackingTheCode(input) {
   input = input.split(" ");
 
-  let answer = '';
+  let answer = "";
 
   for (let i = 0; i < input.length; i++) {
-    if (input[i][0] === 'a') {
+    if (input[i][0] === "a") {
       answer = `${answer}${input[i][1]}`;
     }
-    if (input[i][0] === 'b') {
+    if (input[i][0] === "b") {
       answer = `${answer}${input[i][2]}`;
     }
-    if (input[i][0] === 'c') {
+    if (input[i][0] === "c") {
       answer = `${answer}${input[i][3]}`;
     }
-    if (input[i][0] === 'd') {
+    if (input[i][0] === "d") {
       answer = `${answer}${input[i][4]}`;
-    }
-    else {
-      answer = answer + ' ';
+    } else {
+      answer = answer + " ";
     }
   }
   return answer;
@@ -545,13 +523,10 @@ function crackingTheCode(input) {
 
 // console.log(crackingTheCode('craft block argon meter bells brown croon droop'));
 
-
-
 function daysInMonth(str, leap = false) {
-
   let answer = "";
 
-  switch(str) {
+  switch (str) {
     case "January":
     case "March":
     case "May":
@@ -562,7 +537,7 @@ function daysInMonth(str, leap = false) {
       answer = `${str} has 31 days`;
       break;
     case "February":
-      answer = `${str} has ${leap ? '29' : '28'} days`;
+      answer = `${str} has ${leap ? "29" : "28"} days`;
       break;
     default:
       answer = `${str} has 30 days"`;
@@ -574,15 +549,30 @@ function daysInMonth(str, leap = false) {
 
 // console.log(daysInMonth('February', true));
 
-
-
-function rockPaperScissors(input, compNumb = Math.floor(Math.random() * 3) + 1) {
-  return input === "Rock" ? compNumb === 1 ? 'It is a tie' : compNumb === 2 ? 'You lose' : 'You Win' : input === "Paper" ? compNumb === 1 ? 'You Win' : compNumb === 2 ? 'It is a tie' : 'You lose' : compNumb === 1 ? 'You lose' : compNumb === 2 ? 'You win' : 'It is a tie';
+function rockPaperScissors(
+  input,
+  compNumb = Math.floor(Math.random() * 3) + 1
+) {
+  return input === "Rock"
+    ? compNumb === 1
+      ? "It is a tie"
+      : compNumb === 2
+      ? "You lose"
+      : "You Win"
+    : input === "Paper"
+    ? compNumb === 1
+      ? "You Win"
+      : compNumb === 2
+      ? "It is a tie"
+      : "You lose"
+    : compNumb === 1
+    ? "You lose"
+    : compNumb === 2
+    ? "You win"
+    : "It is a tie";
 }
 
 // console.log(rockPaperScissors('Rock'));
-
-
 
 function repeat(fn, n) {
   for (let i = 0; i < n; i++) {
@@ -591,16 +581,14 @@ function repeat(fn, n) {
 }
 
 function helloWorld() {
-  console.log('Hello World');
+  console.log("Hello World");
 }
 
 function goodbyeWorld() {
-  console.log('Goodbye World');
+  console.log("Goodbye World");
 }
 
 // console.log(repeat(helloWorld, 5));
-
-
 
 function filter(arr, fn) {
   // TASK: Define your function here
@@ -608,27 +596,25 @@ function filter(arr, fn) {
   for (let i = 0; i < arr.length; i++) {
     if (fn(arr[i])) {
       newArr.push(arr[i]);
-    } 
+    }
   }
   return newArr;
 }
 
 // DO NOT EDIT BETWEEN THESE LINES, BUT DO READ THE CODE ----->
 // First we setup an array of strings we plan to filter:
-const myNames = ['Rich', 'Joe', 'Bhaumik', 'Ray'];
+const myNames = ["Rich", "Joe", "Bhaumik", "Ray"];
 
 // We use your `filter` function here, capturing a new array into `filteredNames`
 // comprised of names that only begin with 'R'
 const filteredNames = filter(myNames, function(name) {
-  // This is known as a "predicate function" - it's a function that 
+  // This is known as a "predicate function" - it's a function that
   // only returns a boolean
-  return name[0] === 'R';
+  return name[0] === "R";
 });
 
 // console.log(filteredNames) // => ['Rich', 'Ray']
 // <---- DO NOT EDIT BETWEEN THESE LINES
-
-
 
 function hazardWarningCreator(typeOfWarning) {
   let warningCounter = 0;
@@ -636,14 +622,17 @@ function hazardWarningCreator(typeOfWarning) {
   return location => {
     warningCounter++;
     console.log(`DANGER! There is a ${typeOfWarning} hazard at ${location}`);
-    console.log(`The ${typeOfWarning} hazard has triggered ${warningCounter} ${warningCounter === 1 ? 'time' : 'times'} today!`);
-  }
+    console.log(
+      `The ${typeOfWarning} hazard has triggered ${warningCounter} ${
+        warningCounter === 1 ? "time" : "times"
+      } today!`
+    );
+  };
 }
 
 // const rocksWarning = hazardWarningCreator('Rocks on the Road');
 // rocksWarning('Main St and Pacific Ave');
 // rocksWarning('Centinela Ave and Olympic Blvd');
-
 
 function forEachFilterMap(arr) {
   // this uses filter and removes arrays that have a negative number
@@ -655,34 +644,32 @@ function forEachFilterMap(arr) {
   // this uses forEach
   let forEachArray = arr.forEach(item => {
     console.log(Math.abs(item[0]) + Math.abs(item[1]));
-  })
+  });
 
   return forEachArray;
 }
 
 // console.log(forEachFilterMap([[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]]));
 
-
-
 function reduceArray(str) {
   str = str.split(" ");
   let result = "";
   for (let i = 0; i < str.length; i++) {
-    str[i].length === 3 ? result = result + ' ' : result = result + str[i][str[i].length - 1].toUpperCase();
+    str[i].length === 3
+      ? (result = result + " ")
+      : (result = result + str[i][str[i].length - 1].toUpperCase());
   }
   return result;
 }
 
 // console.log(reduceArray('noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest'));
 
-
-
 function object1() {
   let loaf = {
     flour: 300,
     water: 210,
     hydration: function() {
-      return this.water / 4 * 100;
+      return (this.water / 4) * 100;
     }
   };
 
@@ -692,18 +679,74 @@ function object1() {
 
 // object1();
 
-
 function iterateObject() {
   let obj = {
-    foo: 'hello',
-    bar: 'there',
-    fum: 'general',
-    quux: 'kenobi'
+    foo: "hello",
+    bar: "there",
+    fum: "general",
+    quux: "kenobi"
   };
 
   for (let property1 in obj) {
     console.log(property1, obj[property1]);
-  } 
+  }
 }
 
 // iterateObject();
+
+function arrayInObjects() {
+  let obj = {
+    meals: [
+      "breakfast",
+      "second breakfast",
+      "elevenses",
+      "lunch",
+      "afternoon tea",
+      "dinner",
+      "supper"
+    ]
+  };
+
+
+  return obj.meals[3];
+}
+
+// console.log(arrayInObjects());
+
+
+
+function arrayOfObjects() {
+  let arr = [
+    {
+      name: 'Aaron',
+      jobTitle: 'Web Developer'
+    },
+    {
+      name: 'Meghan',
+      jobTitle: 'Software Engineer',
+      boss: 'Aaron'
+    },
+    {
+      name: 'Meagan',
+      jobTitle: 'Financial Analyst',
+      boss: 'Aaron'
+    },
+    {
+      name: 'Dad',
+      jobTitle: 'CPA',
+      boss: 'Mom'
+    },
+    {
+      name: 'Mom',
+      jobTitle: 'Sleep Technician',
+      boss: 'Meghan'
+    }
+  ];
+
+  arr.forEach(item => item.boss ? console.log(`${item.jobTitle} ${item.name} reports to ${item.boss}.`) : console.log(`${item.jobTitle} ${item.name} doesn't report to anybody.`));
+}
+
+// arrayOfObjects();
+
+
+
