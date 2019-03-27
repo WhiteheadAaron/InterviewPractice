@@ -707,46 +707,135 @@ function arrayInObjects() {
     ]
   };
 
-
   return obj.meals[3];
 }
 
 // console.log(arrayInObjects());
 
-
-
 function arrayOfObjects() {
   let arr = [
     {
-      name: 'Aaron',
-      jobTitle: 'Web Developer'
+      name: "Aaron",
+      jobTitle: "Web Developer"
     },
     {
-      name: 'Meghan',
-      jobTitle: 'Software Engineer',
-      boss: 'Aaron'
+      name: "Meghan",
+      jobTitle: "Software Engineer",
+      boss: "Aaron"
     },
     {
-      name: 'Meagan',
-      jobTitle: 'Financial Analyst',
-      boss: 'Aaron'
+      name: "Meagan",
+      jobTitle: "Financial Analyst",
+      boss: "Aaron"
     },
     {
-      name: 'Dad',
-      jobTitle: 'CPA',
-      boss: 'Mom'
+      name: "Dad",
+      jobTitle: "CPA",
+      boss: "Mom"
     },
     {
-      name: 'Mom',
-      jobTitle: 'Sleep Technician',
-      boss: 'Meghan'
+      name: "Mom",
+      jobTitle: "Sleep Technician",
+      boss: "Meghan"
     }
   ];
 
-  arr.forEach(item => item.boss ? console.log(`${item.jobTitle} ${item.name} reports to ${item.boss}.`) : console.log(`${item.jobTitle} ${item.name} doesn't report to anybody.`));
+  arr.forEach(item =>
+    item.boss
+      ? console.log(`${item.jobTitle} ${item.name} reports to ${item.boss}.`)
+      : console.log(`${item.jobTitle} ${item.name} doesn't report to anybody.`)
+  );
 }
 
 // arrayOfObjects();
+
+function createCharacter(name, nickName, race, origin, attack, defense) {
+  if (isNaN(attack) || isNaN(defense)) {
+    throw new Error("Must be a number");
+  } else {
+    let character = {
+      name,
+      nickName,
+      race,
+      origin,
+      attack,
+      defense,
+      describe: function() {
+        return `${this.name} is a ${this.race} from ${this.origin}`;
+      },
+      evaluateFight: function(obj) {
+        let taken = 0;
+        let given = 0;
+        if (obj.defense > this.attack) {
+          given = 0;
+        }
+        if (obj.defense < this.attack) {
+          given = this.attack - obj.defense;
+        }
+        if (this.defense > obj.attack) {
+          taken = 0;
+        }
+        if (this.defense < obj.attack) {
+          taken = obj.attack - this.defense;
+        }
+        return `Opponent takes ${given} damage and you receive ${taken} damage!!`;
+      }
+    };
+    return character;
+  }
+}
+
+let gandalf = createCharacter("Gandalf the white", "gdalf", "g", "p", 1, 2);
+let smandalf = {
+  name: "Gandalf the blue",
+  nickName: "bwolf",
+  race: "pineapple",
+  origin: "pannuccis pizza",
+  attack: 10,
+  defense: 20
+};
+// console.log(gandalf.evaluateFight(smandalf));
+
+let characters = [
+  createCharacter("Bilbo Baggins", "bilbo", "Hobbit", "The Shire", 2, 1),
+  createCharacter("Frodo Baggins", "frodo", "Hobbit", "The Shire", 3, 2),
+  createCharacter(
+    "Aragorn Son of Arathorn",
+    "aragorn",
+    "Man",
+    "Dunnedain",
+    6,
+    8
+  ),
+  createCharacter("Legolas", "legolas", "Elf", "Woodland Realm", 8, 5),
+  createCharacter("Arwen Undomil", "Big Arw", "Half-Elf", "Rivendell", 988, 0)
+];
+
+// console.log(characters);
+
+
+
+function findAndDescribe(name) {
+  return characters.find(obj => obj.name === name).describe();
+}
+
+// console.log(findAndDescribe("Bilbo Baggins"));
+
+
+
+function filterForHobbits() {
+  return characters.filter(obj => obj.race === "Hobbit");
+}
+
+//  console.log(filterForHobbits());
+
+
+
+function filterForAttacksGreaterThanFive() {
+ return characters.filter(obj => obj.attack > 5);
+}
+
+//  console.log(filterForAttacksGreaterThanFive());
 
 
 
