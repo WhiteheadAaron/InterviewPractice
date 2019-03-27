@@ -749,6 +749,33 @@ function arrayOfObjects() {
 
 // arrayOfObjects();
 
+
+
+
+
+function objectCrackTheCode(str) {
+  let cipher = {
+    a: 2,
+    b: 3,
+    c: 4,
+    d: 5,
+    decode: function(str) {
+      let result = "";
+      str = str.split(" ");
+      str.forEach(item => {
+        this[item[0]] ? result += item[this[item[0]] - 1] : result += ' ';
+      })
+      return result;
+    }
+  };
+
+  return cipher.decode(str);
+}
+
+console.log(objectCrackTheCode('craft block argon meter bells brown croon droop'));
+
+
+
 function createCharacter(name, nickName, race, origin, attack, defense) {
   if (isNaN(attack) || isNaN(defense)) {
     throw new Error("Must be a number");
@@ -857,3 +884,37 @@ function databaseSearch() {
 }
 
 // console.log(databaseSearch());
+
+
+
+function databaseSearch2() {
+  const Database = {
+    store: {
+      heroes: [
+        { id: 1, name: 'Captain America', squad: 'Avengers' },
+        { id: 2, name: 'Iron Man', squad: 'Avengers' },
+        { id: 3, name: 'Spiderman', squad: 'Avengers' },
+        { id: 4, name: 'Superman', squad: 'Justice League' },
+        { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+        { id: 6, name: 'Aquaman', squad: 'Justice League' },
+        { id: 7, name: 'Hulk', squad: 'Avengers' },
+      ]
+    },
+    findOne: function (query) {
+      let keys = Object.keys(query);
+      let props = Object.values(query);
+      let arr = this.store.heroes;
+  
+      for (let i = 0; i < keys.length; i++) {
+        arr = arr.filter(item =>  item[keys[i]] === props[i]);
+      }
+  
+      return arr[0] ? arr[0] : null;
+    }
+  };
+
+  return Database.findOne({ squad: 'Justice League' });
+
+}
+
+// console.log(databaseSearch2());
