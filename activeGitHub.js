@@ -673,4 +673,37 @@ function reduceArray(str) {
   return result;
 }
 
-console.log(reduceArray('noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest'));
+// console.log(reduceArray('noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest'));
+
+
+
+function object1() {
+  let loaf = {
+    flour: 300,
+    water: 210,
+    hydration: function() {
+      return this.water / 4 * 100;
+    }
+  };
+
+  console.log(loaf.flour, loaf.water);
+  console.log(loaf.hydration());
+}
+
+// object1();
+
+
+function iterateObject() {
+  let obj = {
+    foo: 'hello',
+    bar: 'there',
+    fum: 'general',
+    quux: 'kenobi'
+  };
+
+  for (let property1 in obj) {
+    console.log(property1, obj[property1]);
+  } 
+}
+
+// iterateObject();
