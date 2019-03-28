@@ -772,7 +772,7 @@ function objectCrackTheCode(str) {
   return cipher.decode(str);
 }
 
-console.log(objectCrackTheCode('craft block argon meter bells brown croon droop'));
+// console.log(objectCrackTheCode('craft block argon meter bells brown croon droop'));
 
 
 
@@ -791,20 +791,9 @@ function createCharacter(name, nickName, race, origin, attack, defense) {
         return `${this.name} is a ${this.race} from ${this.origin}`;
       },
       evaluateFight: function(obj) {
-        let taken = 0;
-        let given = 0;
-        if (obj.defense > this.attack) {
-          given = 0;
-        }
-        if (obj.defense < this.attack) {
-          given = this.attack - obj.defense;
-        }
-        if (this.defense > obj.attack) {
-          taken = 0;
-        }
-        if (this.defense < obj.attack) {
-          taken = obj.attack - this.defense;
-        }
+        let taken = Math.max(0, obj.attack - this.defense);
+        let given = Math.max(0, this.attack - obj.defense);
+
         return `Opponent takes ${given} damage and you receive ${taken} damage!!`;
       }
     };
@@ -876,10 +865,9 @@ function databaseSearch() {
     for (let i = 0; i < keys.length; i++) {
       arr = arr.filter(item =>  item[keys[i]] === props[i]);
     }
-
     return arr[0] ? arr[0] : null;
   }
-
+  
   return findOne(HEROES, { squad: 'Justice League' });
 }
 
@@ -908,11 +896,9 @@ function databaseSearch2() {
       for (let i = 0; i < keys.length; i++) {
         arr = arr.filter(item =>  item[keys[i]] === props[i]);
       }
-  
       return arr[0] ? arr[0] : null;
     }
   };
-
   return Database.findOne({ squad: 'Justice League' });
 
 }
